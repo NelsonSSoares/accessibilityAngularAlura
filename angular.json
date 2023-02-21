@@ -124,5 +124,8 @@
         }
       }
     }},
-  "defaultProject": "a11y-p1"
+  "defaultProject": "a11y-p1",
+  "cli": {
+    "analytics": "64b840d3-c616-4036-8fa2-1a92b85380f5"
+  }
 }
