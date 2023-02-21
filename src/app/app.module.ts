@@ -17,5 +17,5 @@ import { YesNoButtonGroupModule } from './shared/components/yes-no-button-group/
   bootstrap: [AppComponent]
 })
 export class AppModule {
- 
+  yesNoAnswer = 'no'
  }
