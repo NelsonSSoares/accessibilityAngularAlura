@@ -8,7 +8,6 @@ import { YesNoButtonGroupModule } from './shared/components/yes-no-button-group/
 @NgModule({
   declarations: [
     AppComponent,
-    YesNoButtonGroupComponent
   ],
   imports: [
     BrowserModule,

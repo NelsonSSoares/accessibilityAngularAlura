@@ -7,7 +7,8 @@ import { YesNoButtonGroupComponent } from './yes-no-button-group.component';
 @NgModule({
   declarations: [YesNoButtonGroupComponent],
   imports: [
-    CommonModule
+    CommonModule,
+
   ],
   exports: [
     YesNoButtonGroupComponent
