@@ -1,10 +1,17 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import {ControlValueAccessor} from '@angular/forms';
+import { Component, Input, OnInit, Output, EventEmitter, forwardRef } from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
   selector: 'app-yes-no-button-group',
   templateUrl: './yes-no-button-group.component.html',
-  styleUrls: ['./yes-no-button-group.component.scss']
+  styleUrls: ['./yes-no-button-group.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(()=> YesNoButtonGroupComponent) //executa provida depois que classe é instanciada ou existir
+    }
+  ]
 })
 export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
 
@@ -18,14 +25,19 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
   
   constructor() { }
 
+  
+  public ngOnInit(): void {
+  }
+
+
   public activate(value: string): void{
-    this.value = value;
-    this.valueChange.emit(this.value);
+    this.writeValue(value);
   }
 
   public writeValue(value: string): void {
     this.value = value;
     this.onChange(this.value);
+    this.valueChange.emit(this.value);
   }
 
   public registerOnChange(fn: (value:string)=> void): void {
@@ -38,9 +50,6 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
 
   public setDisabledState?(isDisabled: boolean): void {
     
-  }
-
-  public ngOnInit(): void {
   }
 
 
