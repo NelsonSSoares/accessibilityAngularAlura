@@ -40,6 +40,7 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
     this.valueChange.emit(this.value);
   }
 
+  
   public registerOnChange(fn: (value:string)=> void): void {
     this.onChange =fn;
   }
