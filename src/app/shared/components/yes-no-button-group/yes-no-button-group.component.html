@@ -5,7 +5,8 @@
     <button role="radio" [attr.ariaChecked]="value === options.YES" type="button"
     class="button button-yes"
     (click)="activate(options.YES)"
-    [class.button-pressed]="value === 'yes'">Yes</button>
+    [class.button-pressed]="value === 'yes'"
+    [attr.tabindex]="value === options.YES || value === null ? 0 : -1">Yes</button>
 
 </div>
 <div class="button-group">
@@ -13,7 +14,8 @@
     <button role="radio"  [attr.ariaChecked]="value === options.NO" type="button"
     class="button button-no"
     (click)="activate(options.NO)"
-    [class.button-pressed]="value === 'no'">No</button>
+    [class.button-pressed]="value === 'no'"
+    [attr.tabindex]="value === options.NO || value === null  ? 0 : -1">No</button>
 
 </div>
 
