@@ -1,9 +1,12 @@
-import { Directive, ElementRef } from "@angular/core";
+import { Directive, ElementRef, Output } from "@angular/core";
+import { EventEmitter } from "protractor";
 
 @Directive({
     selector: '[appKmItem]'
 })
 export class KeyboardManagedItemDirective{
+
+    @Output() public focused = new EventEmitter();
 
     constructor(private elementRef: ElementRef<HTMLElement>){}
 
